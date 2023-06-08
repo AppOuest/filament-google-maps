@@ -194,14 +194,14 @@ export default function filamentGoogleMapsField(
                         types: types,
                     };
                     
-                    const autocomplete = new google.maps.places.Autocomplete(geoComplete, geocompleteOptions);
+                    const gmAutocomplete = new google.maps.places.Autocomplete(geoComplete, geocompleteOptions);
 
-                    autocomplete.setComponentRestrictions({
+                    gmAutocomplete.setComponentRestrictions({
                         country: countries,
                     })
                     
-                    autocomplete.addListener("place_changed", () => {
-                        const place = autocomplete.getPlace();
+                    gmAutocomplete.addListener("place_changed", () => {
+                        const place = gmAutocomplete.getPlace();
 
                         if (!place.geometry || !place.geometry.location) {
                             window.alert("No details available for input: '" + place.name + "'");
